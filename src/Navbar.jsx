@@ -1,5 +1,5 @@
 const Navbar = () => {
-    return (<header>Movies review</header>)
+    return (<header className="Navbar">Movies review</header>)
 }
 
 export default Navbar;
