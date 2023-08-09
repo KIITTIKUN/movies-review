@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    background-color: #dddddd;
 }
 
 body {
@@ -10,4 +11,50 @@ body {
     color: #ffffff;
     background-color: #368ae3;
     padding: 20px;
+}
+
+.Input-field, .Post {
+    color: #000000;
+    background-color: #ffffff;
+    border: solid 0.2px;
+    border-radius: 5px;
+    width: 60vw;
+    margin: 10px auto;
+}
+
+.Input-header {
+    font-size: larger;
+    background-color: #c5c3c3;
+    border-bottom: #dddddd solid 0.5px;
+    padding: 20px;
+}
+
+.Input-box {
+    width: 100%;
+    height:10vh;
+    border: none;
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: larger;
+}
+
+.Input-box:focus{
+    outline: none;
+}
+
+.Post div{
+    padding: 5px;
+    background-color: white;
+}
+
+.Title {
+    word-break: break-all;  
+}
+
+.Delete-post {
+    background: none;
+    border: none;
+    padding: 0;
+    float: right;
+    cursor: pointer;
 }
