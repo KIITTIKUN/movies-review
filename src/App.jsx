@@ -7,16 +7,16 @@ import './App.css'
 
 let id = 1;
 
-function App() {
+const App = () => {
   const [posts, setPosts] = useState([]);
 
-  function addPost(title){
+  const addPost = (title) => {
     const newPost = {id, title};
     setPosts([newPost,...posts]);
     id += 1;
   }
 
-  function deletePost(id){
+  const deletePost = (id) => {
     const updatedPost = posts.filter((post) => post.id !== id);
     setPosts(updatedPost);
   }

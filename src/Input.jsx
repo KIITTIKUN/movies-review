@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const Input = ({ addPost }) => {
     const [input, setInput] = useState('');
 
-    function onChange(event){
+    const onChange = (event) => {
         setInput(event.target.value)
     }
 
-    function onKeyDown(event){
+    const onKeyDown = (event) => {
         const title = event.target.value  
 
         if(event.key === 'Enter' && title){

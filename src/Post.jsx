@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-function Post({id, title, deletePost}) {
+const Post = ({id, title, deletePost}) => {
 
     return(
         <div className='Post'>
