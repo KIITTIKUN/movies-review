@@ -3,13 +3,20 @@ config();
 
 import express, {Request, Response} from "express";
 import mongoose from 'mongoose';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
 import reviewDatas from './models/reviewDatas'
 
-const PORT = 4000;
+const PORT = 3000;
 
 const app = express();
 
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(cors({
+    origin: "*"
+}));
+app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL!).then(()=>{
@@ -18,14 +25,12 @@ mongoose.connect(process.env.MONGO_URL!).then(()=>{
 })
 
 
-app.post("/movieReviewDatas",async (req: Request,res: Response)=>{
+app.post("/movieReviewDatas", urlencodedParser ,async (req: Request,res: Response)=>{
     const newReviewDatas = new reviewDatas({
         title: req.body.title,
-        point: req.body.point,
-        review: req.body.review,
-        image: req.body.image,
     });
     const createReview = await newReviewDatas.save();
+    res.setHeader('Content-Type', 'application/json')
     res.json(createReview);
 })
 
