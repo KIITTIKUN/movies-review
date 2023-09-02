@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-const Post = ({id, title, deletePost}) => {
 
+const Post = ({id, title, deletePost}) => {
     return(
         <div className='Post'>
             <button className='Delete-post' onClick={()=>deletePost(id)}>delete</button>

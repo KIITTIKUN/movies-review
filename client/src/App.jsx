@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 
 import Navbar from './Navbar'
 import Input from './Input'
@@ -9,7 +9,14 @@ let id = 1;
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-
+useEffect(()=> {
+  const fetchtDatas = async ()=>{
+  const response = await fetch('http://localhost:3000/movieReviewDatas');
+  const datas = await response.json();
+  setPosts(datas);
+}
+  fetchtDatas();
+},[])
   const addPost = (title) => {
     const newPost = {id, title};
     setPosts([newPost,...posts]);
