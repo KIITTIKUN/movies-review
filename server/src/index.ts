@@ -24,6 +24,10 @@ mongoose.connect(process.env.MONGO_URL!).then(()=>{
     app.listen(PORT);
 })
 
+app.get("/movieReviewDatas", urlencodedParser, async (req: Request, res: Response)=>{
+    const datas = await reviewDatas.find();
+    res.json(datas)
+})
 
 app.post("/movieReviewDatas", urlencodedParser ,async (req: Request,res: Response)=>{
     const newReviewDatas = new reviewDatas({
