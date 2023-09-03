@@ -5,10 +5,9 @@ import Input from './Input'
 import Post from './Post'
 import './App.css'
 
-let id = 1;
-
 const App = () => {
   const [posts, setPosts] = useState([]);
+ 
 useEffect(()=> {
   const fetchtDatas = async ()=>{
   const response = await fetch('http://localhost:3000/movieReviewDatas');
@@ -17,22 +16,25 @@ useEffect(()=> {
 }
   fetchtDatas();
 },[])
-  const addPost = (title) => {
-    const newPost = {id, title};
+
+  const handleAddPost = (title) => {
+    const newPost = {title};
     setPosts([newPost,...posts]);
-    id += 1;
   }
 
-  const deletePost = (id) => {
-    const updatedPost = posts.filter((post) => post.id !== id);
-    setPosts(updatedPost);
+  const handleDeletePost = async (reviewDataId) => {
+    await fetch(`http://localhost:3000/movieReviewDatas/${reviewDataId}`,
+      {method: "DELETE",}
+      );
+    setPosts(posts.filter((post)=> post._id !== reviewDataId))
   }
+
   return (
       <div>
         <Navbar></Navbar>
-        <Input addPost = {addPost} />
+        <Input addPost = {handleAddPost} />
         {posts.map((post) => 
-        (<Post key={post.id} id={post.id} title={post.title} deletePost ={deletePost}>{post}</Post>)
+        (<Post key={post.id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
         )}
         </div>
   )

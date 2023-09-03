@@ -39,7 +39,7 @@ app.post("/movieReviewDatas", urlencodedParser ,async (req: Request,res: Respons
 })
 
 app.delete("/movieReviewDatas/:movieReviewDatasId",async (req: Request,res: Response) => {
-    const movieReviewsId = req.params.movieReviewDataId;
+    const movieReviewsId = req.params.movieReviewDatasId;
     const movieReviews = await reviewDatas.findByIdAndDelete(movieReviewsId);
     res.json(movieReviews)
 })
