@@ -5,14 +5,14 @@ import Input from './Input'
 import Post from './Post'
 import './App.css'
 import createPost from './api/createPost'
+import getPost from './api/getPost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
  
 useEffect(()=> {
   const fetchtDatas = async ()=>{
-  const response = await fetch('http://localhost:3000/movieReviewDatas');
-  const datas = await response.json();
+  const datas = await getPost();
   setPosts(datas);
 }
   fetchtDatas();
