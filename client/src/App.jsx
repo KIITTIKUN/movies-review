@@ -6,6 +6,7 @@ import Post from './Post'
 import './App.css'
 import createPost from './api/createPost'
 import getPost from './api/getPost'
+import deletePost from './api/deletePost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -24,9 +25,7 @@ useEffect(()=> {
   }
 
   const handleDeletePost = async (reviewDataId) => {
-    await fetch(`http://localhost:3000/movieReviewDatas/${reviewDataId}`,
-      {method: "DELETE",}
-      );
+    await deletePost(reviewDataId);
     setPosts(posts.filter((post)=> post._id !== reviewDataId))
   }
 
