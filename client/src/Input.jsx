@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import PropTypes from 'prop-types';
 
+import createPost from './api/createPost';
+
 const Input = ({ addPost }) => {
     const [input, setInput] = useState('');
     
@@ -8,20 +10,12 @@ const onChange = (event) => {
     setInput(event.target.value)
 }
 
-const onKeyDown = (event) => {
+const onKeyDown = async (event) => {
         const title = event.target.value 
         if(event.key === 'Enter' && title){
             addPost(title);
             setInput('');
-            fetch('http://localhost:3000/movieReviewDatas',{
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify({
-                title,
-            }), 
-    })
+            await createPost(title);
         }
     }
     return (
