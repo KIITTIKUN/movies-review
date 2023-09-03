@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Input from './Input'
 import Post from './Post'
 import './App.css'
+import createPost from './api/createPost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -17,8 +18,8 @@ useEffect(()=> {
   fetchtDatas();
 },[])
 
-  const handleAddPost = (title) => {
-    const newPost = {title};
+  const handleAddPost = async (title) => {
+    const newPost = await createPost(title);
     setPosts([newPost,...posts]);
   }
 
