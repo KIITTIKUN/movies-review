@@ -5,8 +5,11 @@ import express, {Request, Response} from "express";
 import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+ 
+import getPostController from './controllers/getPostController';
+import createPostController from './controllers/createPostController';
+import deletePostController from './controllers/deletePostController';
 
-import reviewDatas from './models/reviewDatas'
 
 const PORT = 3000;
 
@@ -24,22 +27,8 @@ mongoose.connect(process.env.MONGO_URL!).then(()=>{
     app.listen(PORT);
 })
 
-app.get("/movieReviewDatas", urlencodedParser, async (req: Request, res: Response)=>{
-    const datas = await reviewDatas.find();
-    res.json(datas)
-})
+app.get("/movieReviewDatas", urlencodedParser, getPostController)
 
-app.post("/movieReviewDatas", urlencodedParser ,async (req: Request,res: Response)=>{
-    const newReviewDatas = new reviewDatas({
-        title: req.body.title,
-    });
-    const createReview = await newReviewDatas.save();
-    res.setHeader('Content-Type', 'application/json')
-    res.json(createReview);
-})
+app.post("/movieReviewDatas", urlencodedParser ,createPostController)
 
-app.delete("/movieReviewDatas/:movieReviewDatasId",async (req: Request,res: Response) => {
-    const movieReviewsId = req.params.movieReviewDatasId;
-    const movieReviews = await reviewDatas.findByIdAndDelete(movieReviewsId);
-    res.json(movieReviews)
-})
+app.delete("/movieReviewDatas/:movieReviewDatasId",deletePostController)
