@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import PropTypes from 'prop-types';
 
-import createPost from './api/createPost';
 
 const Input = ({ addPost }) => {
     const [input, setInput] = useState('');
@@ -15,7 +14,6 @@ const onKeyDown = async (event) => {
         if(event.key === 'Enter' && title){
             addPost(title);
             setInput('');
-            await createPost(title);
         }
     }
     return (
