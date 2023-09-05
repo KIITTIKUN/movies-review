@@ -34,7 +34,7 @@ useEffect(()=> {
         <Navbar></Navbar>
         <Input addPost = {handleAddPost} />
         {posts.map((post) => 
-        (<Post key={post.id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
+        (<Post key={post._id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
         )}
         </div>
   )
