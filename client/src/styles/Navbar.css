@@ -1,0 +1,9 @@
+.Navbar {
+    color: #ffffff;
+    background-color: #368ae3;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

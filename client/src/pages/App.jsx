@@ -3,8 +3,11 @@ import {useState,useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import Input from '../components/Input'
 import Post from '../components/Post'
+import Footer from '../components/Footer'
 
 import '../styles/App.css'
+import '../styles/Navbar.css'
+import '../styles/Footbar.css'
 
 import createPost from '../api/createPost'
 import getPost from '../api/getPost'
@@ -38,6 +41,7 @@ useEffect(()=> {
         {posts.map((post) => 
         (<Post key={post._id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
         )}
+        <Footer></Footer>
         </div>
   )
 }
