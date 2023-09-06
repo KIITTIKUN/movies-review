@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import Input from '../components/Input'
 import Post from '../components/Post'
 
-import '../style/App.css'
+import '../styles/App.css'
 
 import createPost from '../api/createPost'
 import getPost from '../api/getPost'

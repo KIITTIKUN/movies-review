@@ -2,15 +2,18 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './page/App.jsx'
-//plan new feature in future
-// import Post from './Post.jsx'
+import App from './pages/App.jsx'
+import Post from './pages/Post.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/Post",
+    element: <Post />,
   },
   // {
   //   path: "/moviereviewDatas/:reviewDataId",
