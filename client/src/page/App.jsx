@@ -1,12 +1,14 @@
 import {useState,useEffect} from 'react'
 
-import Navbar from './Navbar'
-import Input from './Input'
-import Post from './Post'
-import './App.css'
-import createPost from './api/createPost'
-import getPost from './api/getPost'
-import deletePost from './api/deletePost'
+import Navbar from '../components/Navbar'
+import Input from '../components/Input'
+import Post from '../components/Post'
+
+import '../App.css'
+
+import createPost from '../api/createPost'
+import getPost from '../api/getPost'
+import deletePost from '../api/deletePost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);

@@ -2,7 +2,7 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './page/App.jsx'
 //plan new feature in future
 // import Post from './Post.jsx'
 
