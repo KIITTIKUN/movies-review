@@ -1,4 +1,4 @@
-const createPost = async (title: string) => {
+const createPost = async (title:string,image:string,point:number,review:string) => {
     const response = await fetch('http://localhost:3000/movieReviewDatas',{
             method: "POST",
             headers: {
@@ -6,6 +6,9 @@ const createPost = async (title: string) => {
               },
             body: JSON.stringify({
                 title,
+                image,
+                point,
+                review
             }), 
     })
     return response.json();
