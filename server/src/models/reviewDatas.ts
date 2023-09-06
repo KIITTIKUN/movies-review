@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const reviewDatasSchema = new Schema({
   title: String,
+  image: String,
   point: Number,
   review: String,
-  image: String,
 });
 
 const reviewDatasModel = mongoose.model("reviewDatas", reviewDatasSchema);
