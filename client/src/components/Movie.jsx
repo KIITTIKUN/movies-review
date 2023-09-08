@@ -4,7 +4,7 @@ const Movie = ({title,img}) => {
     return (
         <div>
             <p>{title}</p>
-            <img src={`https://image.tmdb.org/t/p/w200/${img}`}/>
+            <img className="movie-image" src={`https://image.tmdb.org/t/p/w200/${img}`}/>
         </div>
     )
 }
