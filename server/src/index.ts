@@ -7,6 +7,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
  
 import movieReviewDatasRoute from './routes/movieReviewDatasRoute'
+import userDatasRoute from './routes/userDatasRoute'
 
 const PORT = 3000;
 
@@ -24,3 +25,4 @@ mongoose.connect(process.env.MONGO_URL!).then(()=>{
 })
 
 app.use("/movieReviewDatas", movieReviewDatasRoute)
+app.use("/userDatas", userDatasRoute)
