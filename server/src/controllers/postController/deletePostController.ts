@@ -1,5 +1,5 @@
 import {Request,Response} from 'express'
-import reviewDatas from '../models/reviewDatas'
+import reviewDatas from '../../models/reviewDatas'
 
 const deletePostController = async (req: Request,res: Response) => {
     const movieReviewsId = req.params.movieReviewDatasId;

@@ -2,9 +2,9 @@ import express from 'express'
 
 import bodyParser from 'body-parser';
 
-import getPostController from '../controllers/getPostController';
-import createPostController from '../controllers/createPostController';
-import deletePostController from '../controllers/deletePostController';
+import getPostController from '../controllers/postController/getPostController';
+import createPostController from '../controllers/postController/createPostController';
+import deletePostController from '../controllers/postController/deletePostController';
 
 const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
