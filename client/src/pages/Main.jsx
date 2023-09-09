@@ -35,9 +35,9 @@ const handleClickPreviousPage = () => {
       <div>
         <Navbar></Navbar>
         <div className='page-controller'>
-        <button className='previous-page' onClick={handleClickPreviousPage}>previous page</button>
+        <button className='previous-page' onClick={handleClickPreviousPage}>{"<"}</button>
         <span>{page}</span>
-        <button className='next-page' onClick={handleClickNextpage}>next page</button>
+        <button className='next-page' onClick={handleClickNextpage}>{">"}</button>
         </div>
         <div className='container-movie'>
         {movie.map((movie) => 
