@@ -2,6 +2,8 @@ import {useState} from 'react';
 import createPost from '../api/createPost';
 import Swal from 'sweetalert2';
 
+import '../styles/Post.css';
+
 const initial = {
       title: '',
       image: '',

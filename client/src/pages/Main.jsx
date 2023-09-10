@@ -4,8 +4,6 @@ import Navbar from '../components/Navbar'
 import Movie from '..//components/Movie'
 import Footer from '../components/Footer'
 
-import '../styles/Navbar.css'
-import '../styles/Footbar.css'
 import '../styles/ContainerMovie.css'
 
 import getMovie from '../api/getMovie';

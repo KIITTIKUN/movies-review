@@ -1,3 +1,5 @@
+import '../styles/Footbar.css';
+
 const Footer = () => {
     return(
         <div className="footbar">&copy;License by Gparin</div>

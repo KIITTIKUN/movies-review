@@ -6,8 +6,6 @@ import Post from '../components/Post'
 import Footer from '../components/Footer'
 
 import '../styles/App.css'
-import '../styles/Navbar.css'
-import '../styles/Footbar.css'
 
 import createPost from '../api/createPost'
 import getPost from '../api/getPost'

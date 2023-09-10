@@ -1,5 +1,7 @@
 import propTypes from 'prop-types'
 
+import '../styles/Movie.css'
+
 const Movie = ({title,img}) => {
     return (
         <div className='container-div-image'>

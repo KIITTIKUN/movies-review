@@ -67,4 +67,6 @@ textarea {
     border-color: #00bcd4; 
     box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
   }
-  
+  button {
+    border-radius: 5px;
+}
