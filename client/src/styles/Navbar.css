@@ -30,3 +30,12 @@
 header{
     background-color: transparent;
 }
+
+.routes-link button{
+    border-style: solid;
+    border-radius: 5px;
+    margin:0 20px;
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: large;
+}
