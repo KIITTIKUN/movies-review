@@ -1,4 +1,4 @@
-import '../styles/Footbar.css';
+import './index.css';
 
 const Footer = () => {
     return(

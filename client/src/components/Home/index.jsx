@@ -1,15 +1,13 @@
 import {useState,useEffect} from 'react'
 
-import Navbar from '../components/Navbar'
-import Input from '../components/Input'
-import Post from '../components/Post'
-import Footer from '../components/Footer'
+import Navbar from '../Navbar'
+import Input from './InputBox'
+import Post from './PostBox'
+import Footer from '../Footer'
 
-import '../styles/App.css'
-
-import createPost from '../api/createPost'
-import getPost from '../api/getPost'
-import deletePost from '../api/deletePost'
+import createPost from '../../api/createPost'
+import getPost from '../../api/getPost'
+import deletePost from '../../api/deletePost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);

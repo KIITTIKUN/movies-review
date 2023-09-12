@@ -1,12 +1,12 @@
 import {useState,useEffect} from 'react'
 
-import Navbar from '../components/Navbar'
-import Movie from '..//components/Movie'
-import Footer from '../components/Footer'
+import Navbar from '../Navbar'
+import Movie from './MovieBox'
+import Footer from '../Footer'
 
-import '../styles/ContainerMovie.css'
+import './index.css'
 
-import getMovie from '../api/getMovie';
+import getMovie from '../../api/getMovie';
 
 const Main = () => {
   const [movie, setMovie] = useState([]);

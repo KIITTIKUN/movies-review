@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import createPost from '../api/createPost';
+import createPost from '../../../api/createPost';
 import Swal from 'sweetalert2';
 
-import '../styles/Post.css';
+import './index.css';
 
 const initial = {
       title: '',

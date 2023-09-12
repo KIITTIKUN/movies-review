@@ -2,23 +2,25 @@ import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './pages/App.jsx'
-import Post from './pages/Post.jsx'
-import Main from './pages/Main.jsx'
+import Home from './components/Home/index.jsx'
+import Review from './components/Review'
+import Movie from './components/Movies/index.jsx'
+
+import './main.css'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
-    path: "/Post",
-    element: <Post />,
+    path: "/review",
+    element: <Review />,
   },
   {
     path: "/movie",
-    element: <Main />
+    element: <Movie />
   }
 ]);
 

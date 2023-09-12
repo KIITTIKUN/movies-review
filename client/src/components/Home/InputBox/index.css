@@ -1,12 +1,3 @@
-* {
-    box-sizing: border-box;
-    background-color: #dddddd;
-}
-
-body {
-    margin:0;
-}
-
 .Input-field, .Post {
     color: #000000;
     background-color: #ffffff;
@@ -34,21 +25,4 @@ body {
 
 .Input-box:focus{
     outline: none;
-}
-
-.Post div{
-    padding: 5px;
-    background-color: white;
-}
-
-.Title {
-    word-break: break-all;  
-}
-
-.Delete-post {
-    background: none;
-    border: none;
-    padding: 0;
-    float: right;
-    cursor: pointer;
 }
