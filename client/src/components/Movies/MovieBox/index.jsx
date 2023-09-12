@@ -1,6 +1,6 @@
 import propTypes from 'prop-types'
 
-import './index.css'
+import './index.scss'
 
 const Movie = ({title,img}) => {
     return (

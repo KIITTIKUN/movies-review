@@ -21,8 +21,9 @@
     background-color: #ffffff;
     padding: 20px;
     font-size: larger;
+
+    &:focus{
+        outline: none;
+    }
 }
 
-.Input-box:focus{
-    outline: none;
-}

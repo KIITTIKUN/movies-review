@@ -4,7 +4,7 @@ import Navbar from '../Navbar'
 import Movie from './MovieBox'
 import Footer from '../Footer'
 
-import './index.css'
+import './index.scss'
 
 import getMovie from '../../api/getMovie';
 

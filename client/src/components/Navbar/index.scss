@@ -11,31 +11,23 @@
     justify-content: space-between;
 }
 
-.routes-link{
+.routes-link {
     display:flex;
     flex-direction: row;
     justify-content: center;
     width: 50%;
     background-color: transparent;
-}
-.routes-link button{
+
+    button {
     border-style: solid;
     border-radius: 5px;
     margin:0 20px;
     cursor: pointer;
     flex-grow: 1;
     font-size: large;
+    }
 }
 
 header{
     background-color: transparent;
-}
-
-.routes-link button{
-    border-style: solid;
-    border-radius: 5px;
-    margin:0 20px;
-    cursor: pointer;
-    flex-grow: 1;
-    font-size: large;
 }

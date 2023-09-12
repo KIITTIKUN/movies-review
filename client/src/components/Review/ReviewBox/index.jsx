@@ -2,7 +2,7 @@ import {useState} from 'react';
 import createPost from '../../../api/createPost';
 import Swal from 'sweetalert2';
 
-import './index.css';
+import './index.scss';
 
 const initial = {
       title: '',

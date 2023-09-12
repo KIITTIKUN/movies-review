@@ -6,7 +6,7 @@ import Home from './components/Home/index.jsx'
 import Review from './components/Review'
 import Movie from './components/Movies/index.jsx'
 
-import './main.css'
+import './main.scss'
 
 
 const router = createBrowserRouter([

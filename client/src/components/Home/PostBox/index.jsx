@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 
-import './index.css'
+import './index.scss'
 
 const Post = ({id, title, deletePost}) => {
     return(

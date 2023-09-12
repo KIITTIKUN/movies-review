@@ -41,11 +41,13 @@ label{
     border-radius: 5px;
     border-style:hidden;
     transition-duration: 0.4s;
+
+    &:hover {
+        background-color: #4CAF50;
+        cursor: pointer;
+    }
 }
-.button-post:hover {
-    background-color: #4CAF50;
-    cursor: pointer;
-}
+
 textarea {
     width: 100%;
     padding: 10px;
@@ -57,16 +59,17 @@ textarea {
     resize: vertical; 
     transition: border-color 0.2s ease-in-out;
     resize: none;
+
+    &:hover {
+        border-color: #666;
+    }
+
+    &:focus {
+        border-color: #00bcd4; 
+        box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+      }
   }
   
-  textarea:hover {
-    border-color: #666;
-  }
-  
-  textarea:focus {
-    border-color: #00bcd4; 
-    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
-  }
   button {
     border-radius: 5px;
 }
