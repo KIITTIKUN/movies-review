@@ -1,6 +1,5 @@
 import {useState,useEffect} from 'react'
 
-import Navbar from '../Navbar'
 import Movie from './MovieBox'
 import Footer from '../Footer'
 
@@ -31,7 +30,6 @@ const handleClickPreviousPage = () => {
 
   return (
       <div>
-        <Navbar></Navbar>
         <div className='page-controller'>
         <button className='previous-page' onClick={handleClickPreviousPage}>{"<"}</button>
         <span>{page}</span>
