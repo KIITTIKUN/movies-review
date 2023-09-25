@@ -1,6 +1,5 @@
 import {useState,useEffect} from 'react'
 
-import Navbar from '../Navbar'
 import Input from './InputBox'
 import Post from './PostBox'
 import Footer from '../Footer'
@@ -32,7 +31,6 @@ useEffect(()=> {
 
   return (
       <div>
-        <Navbar></Navbar>
         <Input addPost = {handleAddPost} />
         {posts.map((post) => 
         (<Post key={post._id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
