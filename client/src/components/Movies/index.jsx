@@ -1,7 +1,6 @@
 import {useState,useEffect} from 'react'
 
 import Movie from './MovieBox'
-import Footer from '../Footer'
 
 import './index.scss'
 
@@ -40,7 +39,6 @@ const handleClickPreviousPage = () => {
         (<Movie key={movie.id} img={movie.poster_path}title={movie.title}>{movie}</Movie>)
         )}
         </div>
-        <Footer></Footer>
         </div>
   )
 }

@@ -2,7 +2,6 @@ import {useState,useEffect} from 'react'
 
 import Input from './InputBox'
 import Post from './PostBox'
-import Footer from '../Footer'
 
 import createPost from '../../api/createPost'
 import getPost from '../../api/getPost'
@@ -35,7 +34,6 @@ useEffect(()=> {
         {posts.map((post) => 
         (<Post key={post._id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
         )}
-        <Footer></Footer>
         </div>
   )
 }
