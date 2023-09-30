@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/review',
+        path: '/review/:title/:img',
         element: <Review />,
       },
       {

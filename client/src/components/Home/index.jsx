@@ -3,9 +3,9 @@ import {useState,useEffect} from 'react'
 import Input from './InputBox'
 import Post from './PostBox'
 
-import createPost from '../../api/createPost'
-import getPost from '../../api/getPost'
-import deletePost from '../../api/deletePost'
+import createPost from '../../api/Post/createPost'
+import getPost from '../../api/Post/getPost'
+import deletePost from '../../api/Post/deletePost'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -30,9 +30,9 @@ useEffect(()=> {
 
   return (
       <div>
-        <Input addPost = {handleAddPost} />
+        {/* <Input addPost = {handleAddPost} /> */}
         {posts.map((post) => 
-        (<Post key={post._id} id={post._id} title={post.title} deletePost ={handleDeletePost}>{post}</Post>)
+        (<Post key={post._id} id={post._id} title={post.title} image={post.image} point={post.point} review={post.review} deletePost ={handleDeletePost}>{post}</Post>)
         )}
         </div>
   )

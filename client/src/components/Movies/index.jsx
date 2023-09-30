@@ -4,7 +4,7 @@ import Movie from './MovieBox'
 
 import './index.scss'
 
-import getMovie from '../../api/getMovie';
+import getMovie from '../../api/Movie/getMovie';
 
 const Main = () => {
   const [movie, setMovie] = useState([]);
@@ -36,7 +36,7 @@ const handleClickPreviousPage = () => {
         </div>
         <div className='container-movie'>
         {movie.map((movie) => 
-        (<Movie key={movie.id} img={movie.poster_path}title={movie.title}>{movie}</Movie>)
+        (<Movie key={movie.id} id={movie.id} img={movie.poster_path}title={movie.title}>{movie}</Movie>)
         )}
         </div>
         </div>

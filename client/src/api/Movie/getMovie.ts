@@ -1,4 +1,4 @@
-import config from '../../moviekey'
+import config from '../../../moviekey'
 
 type TMovie = {
     title: string;

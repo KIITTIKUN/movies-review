@@ -1,16 +1,21 @@
 import {useState} from 'react';
-import createPost from '../../../api/createPost';
+import createPost from '../../../api/Post/createPost';
+import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import './index.scss';
 
-const initial = {
-      title: '',
-      image: '',
-      point: '',
-      review: '',
-}
 const Review = () =>  {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const dataTitle = queryParams.get('title');
+  const dataImg = queryParams.get('img');
+  const initial = {
+        title: dataTitle,
+        image: dataImg || '',
+        point: '',
+        review: '',
+  }
     const [values, setValues] = useState(initial);
 
     const handleInputChange = (e) => {
@@ -48,6 +53,7 @@ const Review = () =>  {
               value={values.title}
               onChange={handleInputChange}
               name="title"
+              readOnly
             />
             </label>
             <label name="image">Image:
@@ -56,6 +62,7 @@ const Review = () =>  {
               value={values.image}
               onChange={handleInputChange}
               name="image"
+              readOnly
             />
             </label>
             <label>Point:
@@ -65,6 +72,7 @@ const Review = () =>  {
               value={values.point}
               onChange={handleInputChange}
               name="point"
+              required
             />
             </label>
             <textarea
@@ -73,6 +81,7 @@ const Review = () =>  {
               value={values.review}
               onChange={handleInputChange}
               name="review"
+              required
             />
             <button className="button-post" type="submit"  > Post </button>
           </form>
