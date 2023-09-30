@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import createPost from '../../../api/Post/createPost';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import './index.scss';
 
 const Review = () =>  {
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const dataTitle = queryParams.get('title');
@@ -39,7 +40,7 @@ const Review = () =>  {
         });
     
         if (confirmed.isConfirmed) {
-        await createPost(title,image,point,review).then(setValues(initial));
+        await createPost(title,image,point,review).then(navigate('/movie'));
         }
       }
 
