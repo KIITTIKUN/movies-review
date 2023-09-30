@@ -10,7 +10,9 @@ const Post = ({id, title, image, point, review, deletePost}) => {
             <Link to={`movieReviewDatas/${id}`} style={{ textDecoration: 'none',color: 'rgb(0,0,0)' }}>
             {/* <div><p>Comment: {id}</p></div> */}
             <div className='Title'>{title}</div>
-            <div className='Image'>{image}</div>
+            <div className='Image'>
+            <img className="movie-home" src={`https://image.tmdb.org/t/p/w200/${image}`} alt={title}/>
+            </div>
             <div className='Point'>{point}</div>
             <div className='Review'>{review}</div>
             </Link>

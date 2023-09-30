@@ -9,6 +9,13 @@
 .Title {
     word-break: break-all;  
 }
+.Image{
+    display: flex;
+    justify-content: center;
+    .movie-home{
+        width: 200px;
+    }
+}
 
 .Delete-post {
     background: none;
