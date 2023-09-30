@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import createPost from '../../../api/Post/createPost';
 import { useLocation,useNavigate } from 'react-router-dom';
+import StarRating from './StarRating';
 import Swal from 'sweetalert2';
 
 import './index.scss';
@@ -14,10 +15,10 @@ const Review = () =>  {
   const initial = {
         title: dataTitle || '',
         image: dataImg || '',
-        point: '',
         review: '',
   }
     const [values, setValues] = useState(initial);
+    const [rating, setRating] = useState(initial.point);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,8 +28,12 @@ const Review = () =>  {
         });
       };
 
+      const handleRatingChange = (newRating) => {
+        setRating(newRating);
+      };
+
     const handleAddPost = async (e) => {
-      const {title,image,point,review} = values;
+      const {title,image,review} = values;
         e.preventDefault();
         const confirmed = await Swal.fire({
           title: 'Are you sure?',
@@ -40,7 +45,7 @@ const Review = () =>  {
         });
     
         if (confirmed.isConfirmed) {
-        await createPost(title,image,point,review).then(navigate('/movie'));
+        await createPost(title,image,rating,review).then(navigate('/movie'));
         }
       }
 
@@ -62,16 +67,7 @@ const Review = () =>  {
               src={values.image} alt={`${values.title}-img`}
             />
             </div>
-            <label>Point:
-            <input
-              type="number"
-              className='input-post'
-              value={values.point}
-              onChange={handleInputChange}
-              name="point"
-              required
-            />
-            </label>
+            <StarRating initialValue={rating} onChange={handleRatingChange} />
             <textarea
               className='input-post'
               placeholder='Write your review'
