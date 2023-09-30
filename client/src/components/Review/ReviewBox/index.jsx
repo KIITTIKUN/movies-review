@@ -11,7 +11,7 @@ const Review = () =>  {
   const dataTitle = queryParams.get('title');
   const dataImg = queryParams.get('img');
   const initial = {
-        title: dataTitle,
+        title: dataTitle || '',
         image: dataImg || '',
         point: '',
         review: '',

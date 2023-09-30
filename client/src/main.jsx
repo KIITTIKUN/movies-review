@@ -1,4 +1,4 @@
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -9,30 +9,28 @@ import Layout from './components/Layout'
 
 import './main.scss'
 
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: '/review/:title/:img',
-        element: <Review />,
-      },
-      {
-        path: '/movie',
-        element: <Movie />,
-      },
-    ],
-  },
-]);
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<Layout />}
+        >
+          <Route
+            index
+            element={<Home />}
+          />
+          <Route
+            path="/review"
+            element={<Review />}
+          />
+          <Route
+            path="/movie"
+            element={<Movie />}
+          />
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>,
-)
+);
