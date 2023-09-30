@@ -13,7 +13,7 @@ const App = () => {
 useEffect(()=> {
   const fetchtDatas = async ()=>{
   const datas = await getPost();
-  setPosts(datas);
+  setPosts(datas.reverse());
 }
   fetchtDatas();
 },[])
