@@ -56,15 +56,11 @@ const Review = () =>  {
               readOnly
             />
             </label>
-            <label name="image">Image:
-            <input
-              className='input-post'
-              value={values.image}
-              onChange={handleInputChange}
-              name="image"
-              readOnly
+            <div className="movie-img">
+            <img
+              src={values.image} alt={`${values.title}-img`}
             />
-            </label>
+            </div>
             <label>Point:
             <input
               type="number"
