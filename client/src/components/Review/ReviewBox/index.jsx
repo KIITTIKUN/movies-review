@@ -18,7 +18,7 @@ const Review = () =>  {
         review: '',
   }
     const [values, setValues] = useState(initial);
-    const [rating, setRating] = useState(initial.point);
+    const [rating, setRating] = useState(0);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
