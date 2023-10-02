@@ -1,23 +1,36 @@
 import {useState,useEffect} from 'react'
 
 import Movie from './MovieBox'
+import SearchBox from './SearchBox';
 
 import './index.scss'
 
 import getMovie from '../../api/Movie/getMovie';
+import getMovieBySearchTitle from '../../api/Movie/getMovieBySearchTitle';
 
 const Main = () => {
   const [movie, setMovie] = useState([]);
   const [page, setPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(()=> {
-  const fetchDatas = async ()=>{
-  const datas = await getMovie(page);
-  setMovie(datas.results)
-}
+  const fetchDatas = async (page)=>{
+  let datas
+  if(searchTerm){
+    datas = await getMovieBySearchTitle(searchTerm,page);
+  }else{
+    datas = await getMovie(page);
+  }
+  setMovie(datas.results);
+  }
   fetchDatas(page);
 
-},[page])
+},[page,searchTerm])
+
+const handleSearch = (term) => {
+  setSearchTerm(term);
+  setPage(1);
+};
 
 const handleClickNextpage = () => {
   setPage(page + 1);
@@ -29,6 +42,7 @@ const handleClickPreviousPage = () => {
 
   return (
       <div>
+        <SearchBox  onSearch={handleSearch}/>
         <div className='page-controller'>
         <button className='previous-page' onClick={handleClickPreviousPage}>{"<"}</button>
         <span>{page}</span>

@@ -1,0 +1,22 @@
+.search-box{
+    margin: 70px auto;
+    display: flex;
+    width: 100%;
+    min-height: 30px;
+    .search-type{
+        min-width: 300px;
+        margin-left: calc(50% - 150px);
+        margin-right: 10px;
+        border-radius: 8px;
+    }
+    .search-button{
+        min-width: 50px;
+        background: #333333;
+        color: #ffffff;
+        &:hover{
+            background-color: aqua;
+            cursor: pointer;
+            color: #333;
+        }
+    }
+}
