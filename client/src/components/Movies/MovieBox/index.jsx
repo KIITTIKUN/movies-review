@@ -9,7 +9,7 @@ const Movie = ({title,img}) => {
         <div className='container-div-image'>
             <Link to={`/review?title=${encodeURIComponent(title)}&img=${encodeURIComponent(`https://image.tmdb.org/t/p/w500${img}`)}`} className="custom-link">
             <p className="movie-title">{title}</p>
-            <img className="movie-image" src={`https://image.tmdb.org/t/p/w200/${img}`} alt={title}/>
+            <img className="movie-image" alt={`${title}-image`} src={`https://image.tmdb.org/t/p/w200/${img}`}/>
             </Link>
         </div>
     )
