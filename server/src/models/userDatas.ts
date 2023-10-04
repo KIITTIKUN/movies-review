@@ -7,6 +7,7 @@ const userDatasSchema = new Schema({
     email: String,
     gender: String,
     age: Number,
+    token: String,
 });
 
 const userDatasModel = mongoose.model("userDatas", userDatasSchema);
