@@ -1,6 +1,7 @@
 import express from 'express'
 
 import bodyParser from 'body-parser';
+import auth from "../middleware/auth"
 
 import getPostController from '../controllers/postController/getPostController';
 import createPostController from '../controllers/postController/createPostController';
@@ -11,8 +12,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get("/", urlencodedParser, getPostController)
 
-router.post("/", urlencodedParser ,createPostController)
+router.post("/", auth ,createPostController)
 
-router.delete("/:movieReviewDatasId",deletePostController)
+router.delete("/:movieReviewDatasId", auth, deletePostController)
 
 export default router;
