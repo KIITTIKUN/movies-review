@@ -6,6 +6,7 @@ import Home from './components/Home/index.jsx'
 import Review from './components/Review'
 import Movie from './components/Movies/'
 import Layout from './components/Layout'
+import Register from './components/Register/index.jsx';
 
 import './main.scss'
 
@@ -30,6 +31,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             element={<Movie />}
           />
         </Route>
+          <Route
+            path="/register"
+            element={<Register />}
+          />
       </Routes>
     </Router>
   </React.StrictMode>,
