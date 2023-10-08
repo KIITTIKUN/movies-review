@@ -24,12 +24,14 @@ const Register = () => {
     allowExtraEmails: false,
   });
 
-  const handleChange = ({ name, value, type, checked }) => {
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target; 
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +48,7 @@ const Register = () => {
 
   return (
     <>
-      <div className='Headbar'>
+      <div className='Headbar-no-token'>
         <header>Movie Review</header>
       </div>
       <ThemeProvider theme={defaultTheme}>
@@ -176,3 +178,10 @@ const Register = () => {
 };
 
 export default Register;
+
+// username
+// password
+// email
+// gender
+// age
+// token
