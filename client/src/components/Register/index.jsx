@@ -207,10 +207,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// username
-// password
-// email
-// gender
-// age
-// token
