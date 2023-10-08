@@ -16,12 +16,14 @@ import { Select } from '@mui/material';
 
 import './index.scss';
 
+import createUser from '../../api/User/creteUser';
+
 const Register = () => {
   const defaultTheme = createTheme();
   const [formData, setFormData] = useState({
     username: '',
     gender: '',
-    age:'',
+    age:0,
     email: '',
     password: '',
     allowExtraEmails: false,
@@ -35,10 +37,10 @@ const Register = () => {
     });
   };
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    console.log(formData,Number(formData.age))
     event.preventDefault();
-    console.log(formData);
-
+    await createUser(formData.username,formData.password,formData.email,formData.gender,Number(formData.age)).then(console.log('success'));
   };
 
   const ageOptions = Array.from({ length: 101 }, (_, index) => index);
@@ -107,7 +109,11 @@ const Register = () => {
                 label="Age"
                 value={formData.age}
                 onChange={handleChange}
-                inputProps={{ type: 'number' }}
+                inputProps={{
+                  type: 'number', 
+                  min: 0, 
+                  max: 100, 
+                }}
                 >
                 <option value="" disabled>Age</option>
                 {ageOptions.map((age) => (
