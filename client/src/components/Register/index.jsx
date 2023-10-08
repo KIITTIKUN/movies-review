@@ -12,13 +12,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { MenuItem, Select } from '@mui/material';
+
 import './index.scss';
 
 const Register = () => {
   const defaultTheme = createTheme();
   const [formData, setFormData] = useState({
     username: '',
-    lastName: '',
+    gender: '',
     email: '',
     password: '',
     allowExtraEmails: false,
@@ -32,7 +34,6 @@ const Register = () => {
     });
   };
   
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
@@ -77,7 +78,7 @@ const Register = () => {
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, backgroundColor: 'white' }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} sx={{ backgroundColor: 'white' }}>
+                <Grid item xs={12} sm={5} sx={{ backgroundColor: 'white' }}>
                   <TextField
                     variant="filled"
                     autoComplete="given-name"
@@ -92,19 +93,24 @@ const Register = () => {
                     sx={commonTextFieldStyles}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} sx={{ backgroundColor: 'white' }}>
-                  <TextField
-                    variant="filled"
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="family-name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    sx={commonTextFieldStyles}
-                  />
+        <Grid item xs={12} sm={3.5} sx={{ backgroundColor: 'white' }}> 
+        <Select
+          variant="filled"
+          required
+          fullWidth
+          id="gender"
+          label='gender'
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+      <em>Select an option</em>
+    </MenuItem>
+          <MenuItem value="male">Male</MenuItem>
+          <MenuItem value="female">Female</MenuItem>
+          <MenuItem value="other">Other</MenuItem>
+        </Select>
                 </Grid>
                 <Grid item xs={12} sx={{ backgroundColor: 'white' }}>
                   <TextField
