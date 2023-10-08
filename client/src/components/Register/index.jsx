@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { MenuItem, Select } from '@mui/material';
+import { Select } from '@mui/material';
 
 import './index.scss';
 
@@ -21,6 +21,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     gender: '',
+    age:'',
     email: '',
     password: '',
     allowExtraEmails: false,
@@ -39,6 +40,8 @@ const Register = () => {
     console.log(formData);
 
   };
+
+  const ageOptions = Array.from({ length: 101 }, (_, index) => index);
 
   const commonTextFieldStyles = {
     bgcolor: '#ffffff',
@@ -93,9 +96,31 @@ const Register = () => {
                     sx={commonTextFieldStyles}
                   />
                 </Grid>
+                <Grid item xs={12} sm={3.5} sx={{ backgroundColor: 'white'}}>
+                <Select
+                native
+                variant='filled'
+                required
+                fullWidth
+                id="age"
+                name="age"
+                label="Age"
+                value={formData.age}
+                onChange={handleChange}
+                inputProps={{ type: 'number' }}
+                >
+                <option value="" disabled>Age</option>
+                {ageOptions.map((age) => (
+                  <option key={age} value={age}>
+                    {age}
+                  </option>
+                ))}
+              </Select>
+            </Grid>
         <Grid item xs={12} sm={3.5} sx={{ backgroundColor: 'white' }}> 
         <Select
           variant="filled"
+          native
           required
           fullWidth
           id="gender"
@@ -104,12 +129,10 @@ const Register = () => {
           value={formData.gender}
           onChange={handleChange}
         >
-          <MenuItem value="">
-      <em>Select an option</em>
-    </MenuItem>
-          <MenuItem value="male">Male</MenuItem>
-          <MenuItem value="female">Female</MenuItem>
-          <MenuItem value="other">Other</MenuItem>
+          <option value="" disabled>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
         </Select>
                 </Grid>
                 <Grid item xs={12} sx={{ backgroundColor: 'white' }}>
