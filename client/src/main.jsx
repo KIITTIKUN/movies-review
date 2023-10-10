@@ -7,6 +7,7 @@ import Review from './components/Review'
 import Movie from './components/Movies/'
 import Layout from './components/Layout'
 import Register from './components/Register/index.jsx';
+import Login from './components/Login'
 
 import './main.scss'
 
@@ -34,6 +35,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route
             path="/register"
             element={<Register />}
+          />
+           <Route
+            path="/login"
+            element={<Login />}
           />
       </Routes>
     </Router>
