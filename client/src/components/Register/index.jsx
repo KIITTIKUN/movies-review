@@ -199,7 +199,7 @@ const Register = () => {
               </Button>
               <Grid container justifyContent="flex-end" sx={{ backgroundColor: 'white' }}>
                 <Grid item sx={{ backgroundColor: 'white' }}>
-                  <Link href="#" variant="body2" sx={{ backgroundColor: 'white' }}>
+                  <Link href="/login" variant="body2" sx={{ backgroundColor: 'white' }}>
                     Already have an account? Log in
                   </Link>
                 </Grid>
