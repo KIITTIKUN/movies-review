@@ -40,7 +40,7 @@ function StarRating({ initialValue, onChange }) {
 
 StarRating.propTypes={
     initialValue: propTypes.number.isRequired, 
-    onChange: propTypes.number.isRequired
+    onChange: propTypes.func.isRequired
 }
 
 
