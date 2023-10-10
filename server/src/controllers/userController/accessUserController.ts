@@ -27,7 +27,7 @@ const accessUserController = async (req: Request, res: Response) => {
     );
 
     user.token = token;
-    return res.status(200).json(user);
+    return res.status(200).json({success:true,user});
   } catch (error) {
     console.error('Login error:', error);
     return res.status(500).json({ error: 'An error occurred while processing your request' });
