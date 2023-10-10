@@ -27,7 +27,7 @@ const SearchBox = ({onSearch}) =>{
 }
 
 SearchBox.propTypes={
-    onSearch: PropTypes.func,
+    onSearch: PropTypes.func.isRequired,
 }
 
 export default SearchBox
