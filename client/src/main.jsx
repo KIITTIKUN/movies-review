@@ -21,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         >
           <Route
             index
+            path="/home"
             element={<Home />}
           />
           <Route

@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
+import { useNavigate } from 'react-router-dom';
 import LoginUser from '../../api/User/LoginUser';
 
 const Login = () => {
@@ -19,6 +20,8 @@ const Login = () => {
     username: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target; 
@@ -30,7 +33,20 @@ const Login = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await LoginUser(formData.username,formData.password).then(console.log('success'));
+  
+    try {
+      const response = await LoginUser(formData.username, formData.password);
+  
+      if (response.success) {
+        console.log('Login successful');
+        navigate('/home')
+      } 
+      else {
+        alert('Login failed:', response.message);
+      }
+    } catch (error) {
+      alert('An error occurred during login:', error);
+    }
   };
 
   const commonTextFieldStyles = {
