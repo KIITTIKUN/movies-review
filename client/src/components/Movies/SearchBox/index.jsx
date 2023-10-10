@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './index.scss'
 
 const SearchBox = ({onSearch}) =>{
@@ -27,7 +27,7 @@ const SearchBox = ({onSearch}) =>{
 }
 
 SearchBox.propTypes={
-    onSearch: propTypes.string.isRequired,
+    onSearch: PropTypes.func,
 }
 
 export default SearchBox
