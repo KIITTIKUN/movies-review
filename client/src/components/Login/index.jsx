@@ -11,6 +11,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
+import { PropTypes } from 'prop-types';
+
 import { useNavigate } from 'react-router-dom';
 import LoginUser from '../../api/User/LoginUser';
 
@@ -22,7 +24,6 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target; 
     setFormData({
@@ -38,8 +39,10 @@ const Login = () => {
       const response = await LoginUser(formData.username, formData.password);
   
       if (response.success) {
-        console.log('Login successful');
-        navigate('/home')
+        // const data = response.user
+        // const token = data.token
+        // console.log(token);
+        navigate('/home') 
       } 
       else {
         alert('Login failed:', response.message);
@@ -142,3 +145,7 @@ const Login = () => {
 };
 
 export default Login;
+
+Login.propTypes = {
+  setToken: PropTypes.string
+}
