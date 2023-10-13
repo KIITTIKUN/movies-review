@@ -10,10 +10,12 @@ import Register from './components/Register/index.jsx';
 import Login from './components/Login'
 
 import './main.scss'
+import { AuthProvider } from './auth/authContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
+    <AuthProvider>
       <Routes>
         <Route
           path="/"
@@ -42,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             element={<Login />}
           />
       </Routes>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
 );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { PropTypes } from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/authContext'
 import LoginUser from '../../api/User/LoginUser';
 
 const Login = () => {
@@ -22,6 +23,7 @@ const Login = () => {
     username: '',
     password: '',
   });
+  const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const handleChange = (event) => {
@@ -39,9 +41,7 @@ const Login = () => {
       const response = await LoginUser(formData.username, formData.password);
   
       if (response.success) {
-        // const data = response.user
-        // const token = data.token
-        // console.log(token);
+        login(response.user.token)
         navigate('/home') 
       } 
       else {
