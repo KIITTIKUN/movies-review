@@ -37,7 +37,7 @@ useEffect(()=> {
         {/* <Input addPost = {handleAddPost} /> */}
         <p>{`Welcome: ${user.token}`}</p>
         {posts.map((post) => 
-        (<Post key={post._id} id={post._id} title={post.title} image={post.image} point={post.point} review={post.review} deletePost ={handleDeletePost}>{post}</Post>)
+        (<Post key={post._id} id={post._id} username_review = {post.username_review} title={post.title} image={post.image} point={post.point} review={post.review} deletePost ={handleDeletePost}>{post}</Post>)
         )}
         </div>
   )

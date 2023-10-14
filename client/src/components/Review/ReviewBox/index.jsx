@@ -1,9 +1,10 @@
-import {useState} from 'react';
+import {useState ,useContext} from 'react';
 import createPost from '../../../api/Post/createPost';
 import { useLocation,useNavigate } from 'react-router-dom';
 import StarRating from './StarRating';
 import Swal from 'sweetalert2';
 
+import { AuthContext } from '../../../auth/authContext'
 import './index.scss';
 
 const Review = () =>  {
@@ -19,6 +20,9 @@ const Review = () =>  {
   }
     const [values, setValues] = useState(initial);
     const [rating, setRating] = useState(0);
+    const { user } = useContext(AuthContext);
+    console.log(user.token)
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -45,7 +49,7 @@ const Review = () =>  {
         });
     
         if (confirmed.isConfirmed) {
-        await createPost(title,image,rating,review).then(navigate('/movie'));
+        await createPost(user.token,title,image,rating,review).then(navigate('/movie'));
         }
       }
 

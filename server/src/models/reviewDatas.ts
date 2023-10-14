@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const reviewDatasSchema = new Schema({
+  username_review: String,
   title: String,
   image: String,
   point: Number,
