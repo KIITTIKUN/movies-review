@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -22,7 +22,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           element={<Layout />}
         >
           <Route
-            index
+              index
+              element={<Navigate to="/home" />}
+            />
+          <Route
             path="/home"
             element={<Home />}
           />
