@@ -17,7 +17,7 @@ import Swal from 'sweetalert2'
 
 import './index.scss';
 
-import createUser from '../../api/User/creteUser';
+import createUser from '../../api/User/createUser';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {

@@ -1,34 +1,34 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export const AuthContext = createContext({ id: '', username: '', auth: false });
+export const AuthContext = createContext({ username: '', token:'', auth: false });
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const storedAuth = localStorage.getItem('auth') === 'true';
-    const initialId = localStorage.getItem('id') || '';
     const initialUsername = localStorage.getItem('username') || '';
-    return { id: initialId, username: initialUsername, auth: storedAuth };
+    const initialToken = localStorage.getItem('token') || '';
+    return {  username: initialUsername,token: initialToken, auth: storedAuth };
   });
 
   useEffect(() => {
     localStorage.setItem('auth', user.auth.toString());
-    localStorage.setItem('id', user.id);
     localStorage.setItem('username', user.username);
-  }, [user.auth, user.id, user.username]);
+    localStorage.setItem('token', user.token);
+  }, [user.auth, user.username,user.token]);
 
-  const login = (id, username) => {
+  const login = (username,token) => {
     setUser({
-      id,
       username,
+      token,
       auth: true,
     });
   };
 
   const logout = () => {
     setUser({
-      id: '',
       username: '',
+      token: '',
       auth: false,
     });
   };

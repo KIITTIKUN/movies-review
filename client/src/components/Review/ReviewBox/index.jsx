@@ -21,7 +21,6 @@ const Review = () =>  {
     const [values, setValues] = useState(initial);
     const [rating, setRating] = useState(0);
     const { user } = useContext(AuthContext);
-    console.log(user.token)
 
 
     const handleInputChange = (e) => {
