@@ -9,13 +9,13 @@ import jwt from 'jsonwebtoken'
 const createUserController = async (req: Request,res: Response)=>{
     const { username, password, email, age, gender} = req.body;
     if (!(username && password && email && age && gender)) {
-        res.status(400).send("All input is required");
+        return res.status(400).setHeader('Content-Type', 'application/json').json({message:'All Input is required.'});
       }
     
     const oldUser = await userDatas.findOne({ username });
 
     if (oldUser) {
-        return res.status(409).send("User Already Exist. Please Login");
+        return res.status(409).setHeader('Content-Type', 'application/json').json({message:'Username already Exist.'});
     }
 
     let encryptedPassword = await bcrypt.hash(password, 10);
@@ -40,8 +40,7 @@ const createUserController = async (req: Request,res: Response)=>{
 
     const createUser = await newUserDatas.save();    
 
-    res.setHeader('Content-Type', 'application/json')
-    res.json({ user: createUser, token });
+    res.status(200).setHeader('Content-Type', 'application/json').json({ user: createUser, token,message:'Register success' });
     }
 
 export default createUserController
