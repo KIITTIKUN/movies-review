@@ -8,30 +8,36 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const storedAuth = localStorage.getItem('auth');
     const initialAuth = storedAuth === 'true' ? true : false;
-    const initialToken = localStorage.getItem('token') || '';
-    return { token: initialToken, auth: initialAuth };
+    const initialId = localStorage.getItem('id') || '';
+    const initialUsername = localStorage.getItem('username') || '';
+    return { id: initialId, username: initialUsername, auth: initialAuth };
   });
 
-  // Update Local Storage whenever 'user.auth' and 'user.token' change
   useEffect(() => {
     localStorage.setItem('auth', user.auth.toString());
   }, [user.auth]);
 
   useEffect(() => {
-    localStorage.setItem('token', user.token);
-  }, [user.token]);
+    localStorage.setItem('id', user.id);
+  }, [user.id]);
 
-  const login = (token) => {
+  useEffect(() => {
+    localStorage.setItem('username', user.username);
+  }, [user.username]);
+
+  const login = (id,username) => {
     setUser((user) => ({
-      token: token,
+      id: id,
+      username : username,
       auth: true,
     }));
   };
 
   const logout = () => {
     setUser((user) => ({
-      token: '',
-      auth: false,
+      id: '',
+      username : '',
+      auth: true,
     }));
   };
 

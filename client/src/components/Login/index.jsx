@@ -41,7 +41,7 @@ const Login = () => {
       const response = await LoginUser(formData.username, formData.password);
   
       if (response.success) {
-        login(response.user.token)
+        login(response.user._id,response.user.username)
         navigate('/home') 
       } 
       else {
