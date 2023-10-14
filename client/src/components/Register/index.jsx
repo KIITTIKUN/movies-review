@@ -13,10 +13,12 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { Select } from '@mui/material';
+import Swal from 'sweetalert2'
 
 import './index.scss';
 
 import createUser from '../../api/User/creteUser';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const defaultTheme = createTheme();
@@ -28,6 +30,13 @@ const Register = () => {
     password: '',
     allowExtraEmails: false,
   });
+  const navigate = useNavigate();
+
+  function isEmailValid(email) {
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    console.log(emailPattern.test(email))
+    return emailPattern.test(email);
+  }
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target; 
@@ -38,9 +47,25 @@ const Register = () => {
   };
   
   const handleSubmit = async (event) => {
-    console.log(formData,Number(formData.age))
     event.preventDefault();
-    await createUser(formData.username,formData.password,formData.email,formData.gender,Number(formData.age)).then(console.log('success'));
+    if(!isEmailValid(formData.email)){
+
+      return Swal.fire('invlid E-mail. Please check E-mail and Sign again');
+    }
+    const response = await createUser(formData.username,formData.password,formData.email,formData.gender,Number(formData.age));
+    if(response.user){
+      Swal.fire({
+        title: 'Now you have an account. Go to log in?',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login')
+        }
+      })
+    }else{
+    Swal.fire(response.message);
+    }
   };
 
   const ageOptions = Array.from({ length: 101 }, (_, index) => index);
