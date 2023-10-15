@@ -1,0 +1,26 @@
+.Post {
+    
+    div{
+    padding: 5px;
+    background-color: white;
+    }
+}
+
+.Title {
+    word-break: break-all;  
+}
+.Image{
+    display: flex;
+    justify-content: center;
+    .movie-home{
+        width: 200px;
+    }
+}
+
+.Delete-post {
+    background: none;
+    border: none;
+    padding: 0;
+    float: right;
+    cursor: pointer;
+}

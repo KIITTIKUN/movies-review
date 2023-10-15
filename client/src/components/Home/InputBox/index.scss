@@ -1,18 +1,3 @@
-* {
-    box-sizing: border-box;
-    background-color: #dddddd;
-}
-
-body {
-    margin:0;
-}
-
-.Navbar {
-    color: #ffffff;
-    background-color: #368ae3;
-    padding: 20px;
-}
-
 .Input-field, .Post {
     color: #000000;
     background-color: #ffffff;
@@ -36,25 +21,9 @@ body {
     background-color: #ffffff;
     padding: 20px;
     font-size: larger;
+
+    &:focus{
+        outline: none;
+    }
 }
 
-.Input-box:focus{
-    outline: none;
-}
-
-.Post div{
-    padding: 5px;
-    background-color: white;
-}
-
-.Title {
-    word-break: break-all;  
-}
-
-.Delete-post {
-    background: none;
-    border: none;
-    padding: 0;
-    float: right;
-    cursor: pointer;
-}

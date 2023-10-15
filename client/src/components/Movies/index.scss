@@ -1,0 +1,15 @@
+.page-controller{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.container-movie{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    position: relative;
+    place-items: center; 
+    margin-bottom: 5rem;
+}
+span{
+    margin: 20px
+}

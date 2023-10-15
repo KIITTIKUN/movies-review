@@ -1,0 +1,25 @@
+.container-div-image {
+    width: 250px;
+    height: fit-content;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #368ae3;
+}
+
+.movie-image {
+    min-height: 300px;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+  }
+  
+.movie-title {
+    text-align: center;
+    text-justify: center;
+    font-size: large;
+    height: 50px;
+}
+
+a{
+    text-decoration: none;
+}
