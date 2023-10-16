@@ -5,6 +5,7 @@ import ProfileColumn from "./Profilecolumn/index";
 import ProfileReview from "./ProfileReview";
 import { AuthContext } from '../../auth/authContext'
 
+import deletePost from "../../api/Post/deletePost";
 import getPost from "../../api/Post/getPost";
 import './index.scss'
 
@@ -23,11 +24,16 @@ const Profile = () =>{
       }
       },[])
 
+      const handleDeletePost = async (reviewDataId) => {
+        await deletePost(reviewDataId,user.token);
+        setPosts(posts.filter((post)=> post._id !== reviewDataId))
+      }
+
     return (<div className="Profile-page">
     <ProfileColumn/>
     <div className="profile-post">
         {posts.map((post) => 
-        (<ProfileReview key={post._id} id={post._id} username_review = {post.username_review} title={post.title} image={post.image} point={post.point} review={post.review} >{post}</ProfileReview>)
+        (<ProfileReview key={post._id} id={post._id} username_review = {post.username_review} title={post.title} image={post.image} point={post.point} review={post.review} deletePost={handleDeletePost}>{post}</ProfileReview>)
         )}
     </div>
     </div>

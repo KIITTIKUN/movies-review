@@ -2,9 +2,10 @@ import PropTypes from 'prop-types'
 
 import './index.scss'
 
-const ProfileReview = ({id,username_review, title, image, point, review, deletePost}) => {
+const ProfileReview = ({id,username_review, title, image, point, review, deletePost,token}) => {
     return(
         <div className='Post'>
+            <button className='Delete-post' onClick={()=>deletePost(id,token)}>delete</button>
             <div className='username_review'>Username: {username_review}</div>
             <div className='Title'>{title}</div>
             <div className='Image'>
@@ -23,6 +24,7 @@ ProfileReview.propTypes = {
     image: PropTypes.string.isRequired,
     point: PropTypes.number.isRequired,
     review: PropTypes.string.isRequired,
-    deletePost: PropTypes.func.isRequired
+    deletePost: PropTypes.func.isRequired,
+    token: PropTypes.string
 }
 export default ProfileReview 
