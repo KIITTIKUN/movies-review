@@ -8,6 +8,7 @@ import Movie from './components/Movies/'
 import Layout from './components/Layout'
 import Register from './components/Register/index.jsx';
 import Login from './components/Login'
+import Profile from './components/Profile/index.jsx';
 
 import './main.scss'
 import { AuthProvider } from './auth/authContext.jsx';
@@ -36,6 +37,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route
             path="/movie"
             element={<Movie />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
           />
         </Route>
           <Route

@@ -23,7 +23,7 @@ const Headbar = () => {
             <div className="routes-link">
                 <NavLink activeclassname="active" to="/home">Home</NavLink>
                 <NavLink activeclassname="active" to="/movie">Movie</NavLink>
-                <NavLink activeclassname="active" to="/">Profile</NavLink>
+                <NavLink activeclassname="active" to="/profile">Profile</NavLink>
                 <NavLink activeclassname="active" onClick={handleLogout} to="/login" >Log out</NavLink>
             </div>
         </div>
