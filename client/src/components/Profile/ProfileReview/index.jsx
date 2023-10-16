@@ -6,12 +6,12 @@ const ProfileReview = ({id,username_review, title, image, point, review, deleteP
     return(
         <div className='Post'>
             <button className='Delete-post' onClick={()=>deletePost(id,username_review)}>delete</button>
-            <div className='Title'>{title}</div>
+            <div className='Title'>Title: {title}</div>
             <div className='Image'>
             <img className="movie-home" src={`${image}`} alt={title}/>
             </div>
-            <div className='Point'>{point}</div>
-            <div className='Review'>{review}</div>
+            <div className='Point'>Point: {point} / 5</div>
+            <div className='Review'>Review: {review}</div>
         </div>
     )
 }

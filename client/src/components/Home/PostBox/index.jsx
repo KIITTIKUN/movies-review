@@ -8,8 +8,8 @@ const Post = ({id,username_review, title, image, point, review}) => {
     return(
         <div className='Post'>
             {/* <div><p>Comment: {id}</p></div> */}
-            <div className='username_review'>Username: {username_review}</div>
-            <div className='Title'>{title}</div>
+            <div className='username_review'>Review By Username: {username_review}</div>
+            <div className='Title'>Title {title}</div>
             <div className='Image'>
             <img className="movie-home" src={`${image}`} alt={title}/>
             </div>
