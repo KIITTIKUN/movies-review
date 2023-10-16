@@ -24,15 +24,15 @@ const Profile = () =>{
       }
       },[])
 
-      const handleDeletePost = async (reviewDataId) => {
-        await deletePost(reviewDataId,user.token);
+      const handleDeletePost = async (reviewDataId,username_review) => {
+        await deletePost(reviewDataId,user.token,username_review);
         setPosts(posts.filter((post)=> post._id !== reviewDataId))
       }
 
     return (<div className="Profile-page">
     <ProfileColumn/>
     <div className="profile-post">
-        {posts.map((post) => 
+        {posts.filter((post) => post.username_review === user.username).map((post) => 
         (<ProfileReview key={post._id} id={post._id} username_review = {post.username_review} title={post.title} image={post.image} point={post.point} review={post.review} deletePost={handleDeletePost}>{post}</ProfileReview>)
         )}
     </div>

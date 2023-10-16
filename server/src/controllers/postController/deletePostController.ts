@@ -14,7 +14,7 @@ const deletePostController = async (req: Request,res: Response) => {
         res.status(404).json({message:'error Username Not match'})
         }
     } catch(err){
-        res.status(500).json({ message: 'Internal server error',req });
+        res.status(500).json({ message: 'Internal server error',req  });
     }
 }
 
