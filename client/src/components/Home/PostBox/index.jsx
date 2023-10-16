@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
+import Star from '../Star';
 
 import './index.scss'
 
@@ -12,8 +13,8 @@ const Post = ({id,username_review, title, image, point, review}) => {
             <div className='Image'>
             <img className="movie-home" src={`${image}`} alt={title}/>
             </div>
-            <div className='Point'>{point}</div>
-            <div className='Review'>{review}</div>
+            <Star className='Point' score={point}>{point}</Star>
+            <div className='Review'>Review: {review}</div>
         </div>
     )
 }

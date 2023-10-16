@@ -15,7 +15,7 @@ const ProfileColumn = () =>{
                 <img className="img" src={unknow}/>
             </div>
                 <h2 className='text-info welcome-text'>
-                    Welcome
+                    Your Information
                 </h2>
                 <p className='text-info username-profile'>
                     Username: {user.username}
