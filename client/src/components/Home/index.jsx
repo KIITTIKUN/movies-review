@@ -8,6 +8,7 @@ import getPost from '../../api/Post/getPost'
 import deletePost from '../../api/Post/deletePost'
 
 import { AuthContext } from '../../auth/authContext'
+import './index.scss'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -35,7 +36,7 @@ useEffect(()=> {
   return (
       <div>
         {/* <Input addPost = {handleAddPost} /> */}
-        <p>{`Welcome: ${user.username}`}</p>
+        <p className='p-text-home'>{`Welcome: ${user.username}`}</p>
         {posts.map((post) => 
         (<Post key={post._id} id={post._id} username_review = {post.username_review} title={post.title} image={post.image} point={post.point} review={post.review} deletePost ={handleDeletePost}>{post}</Post>)
         )}
